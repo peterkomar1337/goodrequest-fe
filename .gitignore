@@ -43,3 +43,6 @@ next-env.d.ts
 # md
 CLAUDE.md
 TODO.md
+
+# ide
+.idea/
