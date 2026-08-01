@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+@mixin lead1 {
+  font-size: $lead1-size;
+  line-height: $lead1-line;
+}
+
+@mixin lead2 {
+  font-size: $lead2-size;
+  line-height: $lead2-line;
+}
+
+@mixin lead3 {
+  font-size: $lead3-size;
+  line-height: $lead3-line;
+}
+
+@mixin lead4 {
+  font-size: $lead4-size;
+  line-height: $lead4-line;
+}

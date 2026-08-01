@@ -1,0 +1,42 @@
+// Design tokens from Figma.
+
+// ---------- Colors ----------
+
+$primary-dark: #111827; // headings and body text
+$primary: #4f46e5; // accent: buttons, links, active step
+$secondary: #f3f4f6; // input and inactive chip backgrounds
+$tertiary: #4b5563; // secondary text, captions
+$quaternary: #d1d5db; // rules and borders
+
+$white: #fff;
+
+// ---------- Type scale ----------
+// Applied through the mixins in _typography.scss.
+
+$lead1-size: 48px;
+$lead1-line: 56px;
+
+$lead2-size: 18px;
+$lead2-line: 24px;
+
+$lead3-size: 16px; // body default
+$lead3-line: 20px;
+
+$lead4-size: 14px;
+$lead4-line: 20px;
+
+// Weight is 400 everywhere by default; override per element where the design
+// calls for it.
+$font-weight-regular: 400;
+
+// ---------- Radii ----------
+
+$radius-sm: 6px;
+$radius-md: 8px; // buttons, inputs
+$radius-lg: 16px; // cards
+$radius-xl: 24px; // large image in the donation wizard
+
+// ---------- Layout ----------
+
+$container-width: 1200px;
+$container-padding: 24px;

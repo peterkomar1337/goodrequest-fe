@@ -1,0 +1,60 @@
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid $quaternary;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mark {
+  width: 28px;
+  height: 28px;
+  background: $primary;
+  border-radius: $radius-sm;
+}
+
+.wordmark {
+  @include lead2;
+
+  font-weight: 700;
+}
+
+.navWrapper {
+	display: flex;
+	gap: 32px;
+}
+
+.socials {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	list-style: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.link {
+  @include lead3;
+
+  color: $tertiary;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
