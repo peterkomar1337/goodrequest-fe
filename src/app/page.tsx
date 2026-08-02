@@ -3,6 +3,7 @@ import {Footer} from "@/components/Footer/Footer";
 import {Stepper} from "@/components/Stepper/Stepper";
 import styles from "./page.module.scss";
 import {DonationChoice} from "@/components/DonationChoice/DonationChoice";
+import {ShelterSelect} from "@/components/ShelterSelect/ShelterSelect";
 
 export default function Home() {
 
@@ -17,21 +18,11 @@ export default function Home() {
       <div className={styles.wrapper}>
 				<section className={`container ${styles.section}`}>
 					<div className={styles.content}>
-
 						<Stepper steps={steps} current={1} />
-
 						<h1 className={styles.title}>Vyberte si možnosť, ako chcete pomôcť</h1>
-
 						<DonationChoice/>
 
-						{/*todo: component*/}
-						<div className="inputWrapper">
-							<label htmlFor="utulok">Útulok <span>(Nepovinné)</span></label>
-							<select id="utulok" name="utulok">
-								<option value="option1">Option 1</option>
-								<option value="option2">Option 2</option>
-							</select>
-						</div>
+						<ShelterSelect/>
 
 						{/*todo: component*/}
 						<div className="donationWrapper">

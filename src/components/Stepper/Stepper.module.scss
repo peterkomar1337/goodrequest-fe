@@ -21,7 +21,7 @@
 			flex: 1;
 			min-width: 24px;
 			height: 1px;
-			background-color: $quaternary;
+			background-color: $quintarny;
 		}
 	}
 }
@@ -61,12 +61,12 @@
 
 .stepItem[data-state="upcoming"] {
 	.stepNumber {
-		border-color: $quaternary;
-		color: $quaternary;
+		border-color: $quintarny;
+		color: $quintarny;
 	}
 
 	.stepLabel {
-		color: $quaternary;
+		color: $quintarny;
 	}
 }
 
