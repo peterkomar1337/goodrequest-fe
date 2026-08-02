@@ -9,6 +9,10 @@
 	border-radius: $radius-md;
 	background-color: $white;
 	min-width: 0;
+
+	@media(max-width: $screen-mobile-max) {
+		flex-direction: column;
+	}
 }
 
 .choiceLabel {
