@@ -5,6 +5,7 @@ import styles from "./page.module.scss";
 import {DonationChoice} from "@/components/DonationChoice/DonationChoice";
 import {ShelterSelect} from "@/components/ShelterSelect/ShelterSelect";
 import DonationAmount from "@/components/DonationAmount/DonationAmount";
+import {StepNavigation} from "@/components/StepNavigation/StepNavigation";
 
 export default function Home() {
 
@@ -27,21 +28,16 @@ export default function Home() {
 							<ShelterSelect/>
 						</div>
 						<DonationAmount/>
-
-						{/*todo: component*/}
-						<div className="stepNavigation">
-							<button type="button">Späť</button>
-							<button type="button">Pokračovať</button>
-						</div>
-
+						<StepNavigation/>
 						<Footer />
 					</div>
-					<div className="image">
+					<div>
 						<Image
 							src="/images/dog.jpg"
 							alt="Dog Image"
-							width={500}
-							height={500}
+							width={602}
+							height={984}
+							className={styles.leadImage}
 						/>
 					</div>
 				</section>

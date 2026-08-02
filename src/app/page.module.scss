@@ -26,6 +26,13 @@
 	flex-direction: column;
 	gap: 40px;
 	max-width: 660px;
+	padding: 40px 0;
+}
+
+.leadImage {
+	height: 100%;
+	object-fit: cover;
+	border-radius: $radius-xl;
 }
 
 .title {

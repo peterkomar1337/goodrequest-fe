@@ -1,2 +1,9 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
+
+.stepNavigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 32px;
+}

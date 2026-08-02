@@ -2,11 +2,12 @@
 
 // ---------- Colors ----------
 
-$primary-dark: #111827; // headings and body text
-$primary: #4f46e5; // accent: buttons, links, active step
-$secondary: #f3f4f6; // input and inactive chip backgrounds
-$tertiary: #4b5563; // secondary text, captions
-$quintarny: #d1d5db; // rules and borders
+$primary-dark: #111827;
+$primary: #4f46e5;
+$secondary: #f3f4f6;
+$secondary-dark: #374151;
+$tertiary: #4b5563;
+$quintarny: #d1d5db;
 $quaternary: #9CA3AF;
 
 $white: #fff;
@@ -33,9 +34,9 @@ $font-weight-regular: 400;
 // ---------- Radii ----------
 
 $radius-sm: 6px;
-$radius-md: 8px; // buttons, inputs
-$radius-lg: 16px; // cards
-$radius-xl: 24px; // large image in the donation wizard
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-xl: 20px;
 
 // ---------- Layout ----------
 
