@@ -1,35 +1,23 @@
 import Image from "next/image";
 import {Footer} from "@/components/Footer/Footer";
+import {Stepper} from "@/components/Stepper/Stepper";
 import styles from "./page.module.scss";
 
 export default function Home() {
+
+	const steps = [
+		"Výber útulku",
+		"Osobné údaje",
+		"Potvrdenie"
+	]
+
   return (
     <main>
       <div className={styles.wrapper}>
 				<section className={styles.section}>
 					<div className="content">
 
-						{/*todo component*/}
-						<div className="stepNumbersWrapper">
-							<div className="stepNumberElement active">
-								<div className="stepNumber">
-									1
-								</div>
-								<p>Výber útulku</p>
-							</div>
-							<div className="stepNumberElement">
-								<div className="stepNumber">
-									2
-								</div>
-								<p>Osobné údaje</p>
-							</div>
-							<div className="stepNumberElement">
-								<div className="stepNumber">
-									3
-								</div>
-								Potvrdenie
-							</div>
-						</div>
+						<Stepper steps={steps} current={1} />
 
 						<h1 className="headingH1">Vyberte si možnosť, ako chcete pomôcť</h1>
 

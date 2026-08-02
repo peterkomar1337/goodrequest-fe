@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.stepNumbersWrapper {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	list-style: none;
+}
+
+.stepItem {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			width: 108px;
+			height: 1px;
+			margin-left: 8px;
+			background-color: $quaternary;
+		}
+	}
+}
+
+.stepNumber {
+	@include lead3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+}
+
+.stepLabel {
+	@include lead3;
+}
+
+// ---------- States ----------
+
+.stepItem[data-state="active"] {
+	.stepNumber {
+		background-color: $primary;
+		color: $white;
+	}
+}
+
+.stepItem[data-state="done"] {
+	.stepNumber {
+		border-color: $primary;
+		color: $primary;
+	}
+}
+
+.stepItem[data-state="upcoming"] {
+	.stepNumber {
+		border-color: $quaternary;
+		color: $quaternary;
+	}
+
+	.stepLabel {
+		color: $quaternary;
+	}
+}
+
+.checkImage {
+	object-fit: contain;
+	max-width: 100%;
+}
