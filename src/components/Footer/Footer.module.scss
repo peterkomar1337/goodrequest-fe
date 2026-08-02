@@ -2,36 +2,46 @@
 @use "../../styles/typography" as *;
 
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-top: 24px;
-  border-top: 1px solid $quintarny;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding-top: 24px;
+	border-top: 1px solid $quintarny;
+
+	@media(max-width: $screen-mobile-max) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
 }
 
 .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .mark {
-  width: 28px;
-  height: 28px;
-  background: $primary;
-  border-radius: $radius-sm;
+	width: 28px;
+	height: 28px;
+	background: $primary;
+	border-radius: $radius-sm;
 }
 
 .wordmark {
-  @include lead2;
+	@include lead2;
 
-  font-weight: 700;
+	font-weight: 700;
 }
 
 .navWrapper {
 	display: flex;
 	gap: 32px;
+
+	@media(max-width: $screen-mobile-max) {
+		flex-wrap: wrap;
+		gap: 16px;
+	}
 }
 
 .socials {
@@ -42,19 +52,23 @@
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 32px;
+	list-style: none;
+
+	@media(max-width: $screen-mobile-max) {
+		gap: 16px;
+	}
 }
 
 .link {
-  @include lead3;
+	@include lead3;
 
-  color: $tertiary;
-  transition: color 0.15s ease;
+	color: $tertiary;
+	transition: color 0.15s ease;
 
-  &:hover {
-    color: $primary-dark;
-  }
+	&:hover {
+		color: $primary-dark;
+	}
 }
