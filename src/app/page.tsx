@@ -26,7 +26,6 @@ export default function Home() {
 							<h2 className={styles.sectionTitle}>O projekte</h2>
 							<ShelterSelect/>
 						</div>
-
 						<DonationAmount/>
 
 						{/*todo: component*/}
