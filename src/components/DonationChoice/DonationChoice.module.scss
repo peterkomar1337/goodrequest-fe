@@ -3,7 +3,7 @@
 
 .choicesWrapper {
 	display: flex;
-	gap: 4px;
+	gap: 8px;
 	padding: 4px;
 	border: 1px solid $quintarny;
 	border-radius: $radius-md;
@@ -14,7 +14,7 @@
 .choiceLabel {
 	@include lead4;
 	flex: 1;
-	padding: 10px 16px;
+	padding: 16px 8px;
 	border-radius: $radius-sm;
 	text-align: center;
 	cursor: pointer;
