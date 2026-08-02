@@ -16,17 +16,19 @@ export function Step({label, number, state}: StepProps) {
 			data-state={state}
 			aria-current={state === "active" ? "step" : undefined}
 		>
-			<div className={styles.stepNumber} aria-hidden>
-				{state === "done" ?
-					<Image
-						className={styles.checkImage}
-						src="/images/icons/check-primary.svg"
-						alt=""
-						width={14}
-						height={12}/>
-					: number}
+			<div className={styles.stepItemInner}>
+				<div className={styles.stepNumber} aria-hidden>
+					{state === "done" ?
+						<Image
+							className={styles.checkImage}
+							src="/images/icons/check-primary.svg"
+							alt=""
+							width={14}
+							height={12}/>
+						: number}
+				</div>
+				<span className={styles.stepLabel}>{label}</span>
 			</div>
-			<span className={styles.stepLabel}>{label}</span>
 		</li>
 	);
 }

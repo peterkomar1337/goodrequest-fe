@@ -3,12 +3,24 @@
 
 .wrapper {
 	padding: 20px 0;
+
+	@media(max-width: $screen_desktop_max) {
+		padding: 0;
+	}
 }
 
 .section {
 	display: flex;
 	justify-content: space-between;
 	gap: 80px;
+
+	@media(max-width: $screen_large_max) {
+		gap: 40px;
+	}
+
+	@media(max-width: $screen_desktop_max) {
+		gap: 0;
+	}
 }
 
 .sectionDiv {
@@ -27,12 +39,25 @@
 	gap: 40px;
 	max-width: 660px;
 	padding: 40px 0;
+
+	@media(max-width: $screen_desktop_max) {
+		max-width: 100%;
+		padding: 30px;
+	}
+
+	@media(max-width: $screen_mobile_max) {
+		padding: 15px 0;
+	}
 }
 
 .leadImage {
 	height: 100%;
 	object-fit: cover;
 	border-radius: $radius-xl;
+
+	@media(max-width: $screen_desktop_max) {
+		display: none;
+	}
 }
 
 .title {

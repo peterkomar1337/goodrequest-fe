@@ -6,12 +6,21 @@
 	align-items: center;
 	gap: 16px;
 	list-style: none;
+
+	@media(max-width: $screen_mobile_max) {
+		justify-content: space-between;
+		align-items: flex-start;
+	}
 }
 
 .stepItem {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+
+	@media(max-width: $screen_mobile_max) {
+		gap: 20px;
+	}
 
 	&:not(:last-child) {
 		flex: 1;
@@ -23,6 +32,17 @@
 			height: 1px;
 			background-color: $quintarny;
 		}
+	}
+}
+
+.stepItemInner {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	@media(max-width: $screen_mobile_max) {
+		flex-direction: column;
+		flex: 0;
 	}
 }
 
@@ -41,6 +61,12 @@
 .stepLabel {
 	@include lead3;
 	white-space: nowrap;
+
+	@media(max-width: $screen_mobile_max) {
+		white-space: normal;
+		font-size: 14px;
+		text-align: center;
+	}
 }
 
 // ---------- States ----------
