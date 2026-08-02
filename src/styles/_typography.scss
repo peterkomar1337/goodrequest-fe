@@ -19,3 +19,15 @@
   font-size: $lead4-size;
   line-height: $lead4-line;
 }
+
+// Headings
+
+@mixin headingXl {
+  @include lead1;
+  font-weight: 700;
+}
+
+@mixin headingLg {
+  @include lead2;
+  font-weight: 600;
+}

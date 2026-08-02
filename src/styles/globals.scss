@@ -69,6 +69,14 @@ h4 {
 	font-weight: inherit;
 }
 
+// ---------- Layout ----------
+
+.container {
+	width: 100%;
+	max-width: $container-width;
+	margin: 0 auto;
+}
+
 // ---------- Accessibility ----------
 
 :focus-visible {

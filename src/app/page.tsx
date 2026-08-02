@@ -15,12 +15,12 @@ export default function Home() {
   return (
     <main>
       <div className={styles.wrapper}>
-				<section className={styles.section}>
-					<div className="content">
+				<section className={`container ${styles.section}`}>
+					<div className={styles.content}>
 
 						<Stepper steps={steps} current={1} />
 
-						<h1 className="headingH1">Vyberte si možnosť, ako chcete pomôcť</h1>
+						<h1 className={styles.title}>Vyberte si možnosť, ako chcete pomôcť</h1>
 
 						<DonationChoice/>
 
