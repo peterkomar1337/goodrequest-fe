@@ -15,6 +15,10 @@
 	font-weight: 500;
 	transition: background-color 0.15s ease, color 0.15s ease;
 
+	@media(max-width: $screen-mobile-max) {
+		padding: 12px 20px;
+	}
+
 	&:disabled {
 		opacity: 0.5;
 	}
