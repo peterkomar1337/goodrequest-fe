@@ -2,6 +2,7 @@ import Image from "next/image";
 import {Footer} from "@/components/Footer/Footer";
 import {Stepper} from "@/components/Stepper/Stepper";
 import styles from "./page.module.scss";
+import {DonationChoice} from "@/components/DonationChoice/DonationChoice";
 
 export default function Home() {
 
@@ -21,17 +22,7 @@ export default function Home() {
 
 						<h1 className="headingH1">Vyberte si možnosť, ako chcete pomôcť</h1>
 
-						{/*todo: component*/}
-						<div className="choicesWrapper">
-							<div className="choiceRadio">
-								<input type={"radio"} name="choice" id="choice1" />
-								<label htmlFor="choice1">Útulok 1</label>
-							</div>
-							<div className="choiceRadio">
-								<input type={"radio"} name="choice" id="choice2" />
-								<label htmlFor="choice2">Útulok 2</label>
-							</div>
-						</div>
+						<DonationChoice/>
 
 						{/*todo: component*/}
 						<div className="inputWrapper">
