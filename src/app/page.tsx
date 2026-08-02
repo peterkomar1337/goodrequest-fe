@@ -21,8 +21,10 @@ export default function Home() {
 						<Stepper steps={steps} current={1} />
 						<h1 className={styles.title}>Vyberte si možnosť, ako chcete pomôcť</h1>
 						<DonationChoice/>
-
-						<ShelterSelect/>
+						<div className={styles.sectionDiv}>
+							<h2 className={styles.sectionTitle}>O projekte</h2>
+							<ShelterSelect/>
+						</div>
 
 						{/*todo: component*/}
 						<div className="donationWrapper">

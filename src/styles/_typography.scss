@@ -1,33 +1,38 @@
 @use "variables" as *;
 
 @mixin lead1 {
-  font-size: $lead1-size;
-  line-height: $lead1-line;
+	font-size: $lead1-size;
+	line-height: $lead1-line;
 }
 
 @mixin lead2 {
-  font-size: $lead2-size;
-  line-height: $lead2-line;
+	font-size: $lead2-size;
+	line-height: $lead2-line;
 }
 
 @mixin lead3 {
-  font-size: $lead3-size;
-  line-height: $lead3-line;
+	font-size: $lead3-size;
+	line-height: $lead3-line;
 }
 
 @mixin lead4 {
-  font-size: $lead4-size;
-  line-height: $lead4-line;
+	font-size: $lead4-size;
+	line-height: $lead4-line;
 }
 
 // Headings
 
-@mixin headingXl {
-  @include lead1;
-  font-weight: 700;
+@mixin headingLead1 {
+	@include lead1;
+	font-weight: 700;
 }
 
-@mixin headingLg {
-  @include lead2;
-  font-weight: 600;
+@mixin headingLead2 {
+	@include lead2;
+	font-weight: 600;
+}
+
+@mixin headingLead3 {
+	@include lead3;
+	font-weight: 600;
 }

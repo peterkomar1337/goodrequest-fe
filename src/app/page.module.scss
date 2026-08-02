@@ -11,6 +11,16 @@
 	gap: 80px;
 }
 
+.sectionDiv {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.sectionTitle {
+	@include headingLead3;
+}
+
 .content {
 	display: flex;
 	flex-direction: column;
@@ -19,5 +29,5 @@
 }
 
 .title {
-	@include headingXl;
+	@include headingLead1;
 }
