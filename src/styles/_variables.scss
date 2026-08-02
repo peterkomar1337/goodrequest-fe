@@ -12,20 +12,18 @@ $quaternary: #9CA3AF;
 
 $white: #fff;
 
-// ---------- Type scale ----------
-// Applied through the mixins in _typography.scss.
+// ---------- Breakpoints ----------
 
-$lead1-size: 48px;
-$lead1-line: 56px;
-
-$lead2-size: 18px;
-$lead2-line: 24px;
-
-$lead3-size: 16px; // body default
-$lead3-line: 20px;
-
-$lead4-size: 14px;
-$lead4-line: 20px;
+$screen-mobile: 576px;
+$screen-mobile-max: 575.5px;
+$screen-tablet: 768px;
+$screen-tablet-max: 767.5px;
+$screen-desktop: 992px;
+$screen-desktop-max: 991.5px;
+$screen-large: 1200px;
+$screen-large-max: 1199.5px;
+$screen-xlarge: 1400px;
+$screen-xlarge-max: 1399.5px;
 
 // Weight is 400 everywhere by default; override per element where the design
 // calls for it.
@@ -42,16 +40,3 @@ $radius-xl: 20px;
 
 $container-width: 1280px;
 $container-padding: 24px;
-
-// ---------- Breakpoints ----------
-
-$screen_mobile: 576px;
-$screen_mobile_max: 575.5px;
-$screen_tablet: 768px;
-$screen_tablet_max: 767.5px;
-$screen_desktop: 992px;
-$screen_desktop_max: 991.5px;
-$screen_large: 1200px;
-$screen_large_max: 1199.5px;
-$screen_xlarge: 1400px;
-$screen_xlarge_max: 1399.5px;

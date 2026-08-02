@@ -4,7 +4,7 @@
 .wrapper {
 	padding: 20px 0;
 
-	@media(max-width: $screen_desktop_max) {
+	@media(max-width: $screen-desktop-max) {
 		padding: 0;
 	}
 }
@@ -14,11 +14,11 @@
 	justify-content: space-between;
 	gap: 80px;
 
-	@media(max-width: $screen_large_max) {
+	@media(max-width: $screen-large-max) {
 		gap: 40px;
 	}
 
-	@media(max-width: $screen_desktop_max) {
+	@media(max-width: $screen-desktop-max) {
 		gap: 0;
 	}
 }
@@ -40,12 +40,12 @@
 	max-width: 660px;
 	padding: 40px 0;
 
-	@media(max-width: $screen_desktop_max) {
+	@media(max-width: $screen-desktop-max) {
 		max-width: 100%;
 		padding: 30px;
 	}
 
-	@media(max-width: $screen_mobile_max) {
+	@media(max-width: $screen-mobile-max) {
 		padding: 15px 0;
 	}
 }
@@ -55,7 +55,7 @@
 	object-fit: cover;
 	border-radius: $radius-xl;
 
-	@media(max-width: $screen_desktop_max) {
+	@media(max-width: $screen-desktop-max) {
 		display: none;
 	}
 }

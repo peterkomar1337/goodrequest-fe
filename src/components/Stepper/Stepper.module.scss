@@ -7,7 +7,7 @@
 	gap: 16px;
 	list-style: none;
 
-	@media(max-width: $screen_mobile_max) {
+	@media(max-width: $screen-mobile-max) {
 		justify-content: space-between;
 		align-items: flex-start;
 	}
@@ -18,7 +18,7 @@
 	align-items: center;
 	gap: 8px;
 
-	@media(max-width: $screen_mobile_max) {
+	@media(max-width: $screen-mobile-max) {
 		gap: 20px;
 	}
 
@@ -40,7 +40,7 @@
 	align-items: center;
 	gap: 8px;
 
-	@media(max-width: $screen_mobile_max) {
+	@media(max-width: $screen-mobile-max) {
 		flex-direction: column;
 		flex: 0;
 	}
@@ -62,7 +62,7 @@
 	@include lead3;
 	white-space: nowrap;
 
-	@media(max-width: $screen_mobile_max) {
+	@media(max-width: $screen-mobile-max) {
 		white-space: normal;
 		font-size: 14px;
 		text-align: center;

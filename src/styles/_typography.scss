@@ -1,23 +1,34 @@
 @use "variables" as *;
 
+// Font sizes
+
 @mixin lead1 {
-	font-size: $lead1-size;
-	line-height: $lead1-line;
+	font-size: 48px;
+	line-height: 56px;
+
+	@media (max-width: $screen-tablet-max) {
+		font-size: 36px;
+		line-height: normal;
+	}
+
+	@media(max-width: $screen-mobile-max) {
+		font-size: 28px;
+	}
 }
 
 @mixin lead2 {
-	font-size: $lead2-size;
-	line-height: $lead2-line;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 @mixin lead3 {
-	font-size: $lead3-size;
-	line-height: $lead3-line;
+	font-size: 16px; // body default
+	line-height: 20px;
 }
 
 @mixin lead4 {
-	font-size: $lead4-size;
-	line-height: $lead4-line;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 // Headings
