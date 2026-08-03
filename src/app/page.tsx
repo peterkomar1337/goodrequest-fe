@@ -2,10 +2,8 @@ import Image from "next/image";
 import {Footer} from "@/components/Footer/Footer";
 import {Stepper} from "@/components/Stepper/Stepper";
 import styles from "./page.module.scss";
-import {DonationChoice} from "@/components/DonationChoice/DonationChoice";
-import {ShelterSelect} from "@/components/ShelterSelect/ShelterSelect";
-import DonationAmount from "@/components/DonationAmount/DonationAmount";
 import {StepNavigation} from "@/components/StepNavigation/StepNavigation";
+import {StepShelter} from "@/components/Steps/StepShelter";
 
 export default function Home() {
 
@@ -21,13 +19,7 @@ export default function Home() {
 				<section className={`container ${styles.section}`}>
 					<div className={styles.content}>
 						<Stepper steps={steps} current={1} />
-						<h1 className={styles.title}>Vyberte si možnosť, ako chcete pomôcť</h1>
-						<DonationChoice/>
-						<div className={styles.sectionDiv}>
-							<h2 className={styles.sectionTitle}>O projekte</h2>
-							<ShelterSelect/>
-						</div>
-						<DonationAmount/>
+						<StepShelter/>
 						<StepNavigation/>
 						<Footer />
 					</div>
