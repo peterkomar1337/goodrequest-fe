@@ -23,16 +23,6 @@
 	}
 }
 
-/*.sectionDiv {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
-
-.sectionTitle {
-	@include headingLead3;
-}*/
-
 .content {
 	display: flex;
 	flex-direction: column;
@@ -59,7 +49,3 @@
 		display: none;
 	}
 }
-
-/*.title {
-	@include headingLead1;
-}*/
