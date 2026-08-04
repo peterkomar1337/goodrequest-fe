@@ -49,7 +49,11 @@ const STEP_FIELDS: Record<number, FieldPath<DonationFormValues>[]> = {
   3: ["consent"],
 };
 
-export function StepNavigation() {
+type StepNavigationProps = {
+  isSubmitting: boolean;
+};
+
+export function StepNavigation({ isSubmitting }: StepNavigationProps) {
   const { state, dispatch } = useSteps();
   const { trigger } = useFormContext<DonationFormValues>();
 
@@ -65,6 +69,8 @@ export function StepNavigation() {
 
   const isLastStep = state.step === LAST_STEP;
 
+  const primaryText = isLastStep ? "Odoslať" : "Pokračovať";
+
   return (
     <div className={styles.stepNavigation}>
       <Button
@@ -78,11 +84,12 @@ export function StepNavigation() {
       />
       <Button
         variant="primary"
-        text={isLastStep ? "Odoslať" : "Pokračovať"}
+        text={isSubmitting ? "Odosielam…" : primaryText}
         type={isLastStep ? "submit" : "button"}
         icon={isLastStep ? undefined : ArrowRight}
         iconPosition={isLastStep ? undefined : "right"}
         onClick={isLastStep ? undefined : handleNext}
+        disabled={isSubmitting}
       />
     </div>
   );

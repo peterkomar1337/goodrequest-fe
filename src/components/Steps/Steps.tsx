@@ -10,10 +10,16 @@ import { DonationFormValues, donationSchema } from "@/lib/donationSchema";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { contribute, toContributePayload } from "@/lib/api";
+import {
+  contribute,
+  toContributePayload,
+  type ContributePayload,
+} from "@/lib/api";
 import styles from "./Steps.module.scss";
 
 const stepLabels = ["Výber útulku", "Osobné údaje", "Potvrdenie"];
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export function Steps() {
   const { state } = useSteps();
@@ -31,7 +37,9 @@ export function Steps() {
   });
 
   const mutation = useMutation({
-    mutationFn: contribute,
+    mutationFn: async (payload: ContributePayload) => {
+      await Promise.all([contribute(payload), delay(500)]);
+    },
   });
 
   return (
@@ -46,7 +54,12 @@ export function Steps() {
         {state.step === 1 && <StepShelter />}
         {state.step === 2 && <StepPersonal />}
         {state.step === 3 && <StepSummary />}
-        <StepNavigation />
+        {mutation.isError && (
+          <p className={styles.error} role="alert">
+            Formulár sa nepodarilo odoslať. Skúste to prosím znova.
+          </p>
+        )}
+        <StepNavigation isSubmitting={mutation.isPending} />
       </form>
     </FormProvider>
   );

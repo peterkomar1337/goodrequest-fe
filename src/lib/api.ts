@@ -26,7 +26,7 @@ export async function fetchShelters(): Promise<Shelter[]> {
   return data.shelters;
 }
 
-type ContributePayload = {
+export type ContributePayload = {
   contributors: {
     firstName: string;
     lastName: string;
