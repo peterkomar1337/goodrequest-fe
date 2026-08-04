@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import type { DonationFormValues } from "@/lib/donationSchema";
 import styles from "./ShelterSelect.module.scss";
+import { SHELTERS } from "@/lib/shelters";
 
 export function ShelterSelect() {
   const {
@@ -27,8 +28,11 @@ export function ShelterSelect() {
         <option value="" disabled>
           Vyberte útulok zo zoznamu
         </option>
-        <option value="1">Útulok Bratislava</option>
-        <option value="2">Útulok Košice</option>
+        {SHELTERS.map((shelter) => (
+          <option key={shelter.id} value={shelter.id}>
+            {shelter.name}
+          </option>
+        ))}
       </select>
       {errors.shelterId && (
         <p className={styles.error} id="shelterId-error" role="alert">
