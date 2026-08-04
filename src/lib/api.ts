@@ -43,7 +43,8 @@ export function toContributePayload(
   return {
     contributors: [
       {
-        firstName: values.firstName,
+        // API rejects an empty firstName workaround
+        firstName: values.firstName || " ",
         lastName: values.lastName,
         email: values.email,
         phone: values.phone,

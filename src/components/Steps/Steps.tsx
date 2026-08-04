@@ -9,6 +9,8 @@ import { StepSummary } from "@/components/Steps/StepSummary";
 import { DonationFormValues, donationSchema } from "@/lib/donationSchema";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { contribute, toContributePayload } from "@/lib/api";
 import styles from "./Steps.module.scss";
 
 const stepLabels = ["Výber útulku", "Osobné údaje", "Potvrdenie"];
@@ -28,12 +30,16 @@ export function Steps() {
     },
   });
 
+  const mutation = useMutation({
+    mutationFn: contribute,
+  });
+
   return (
     <FormProvider {...methods}>
       <form
         className={styles.content}
-        onSubmit={methods.handleSubmit(() => {
-          // TODO: send through useMutation once the API is wired
+        onSubmit={methods.handleSubmit((values) => {
+          mutation.mutate(toContributePayload(values));
         })}
       >
         <Stepper steps={stepLabels} current={state.step} />
