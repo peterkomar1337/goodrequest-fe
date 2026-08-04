@@ -1,8 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import type { DonationFormValues } from "@/lib/donationSchema";
 import styles from "./ShelterSelect.module.scss";
-import { useQuery } from "@tanstack/react-query";
-import { fetchShelters } from "@/lib/api";
+import { useShelters } from "@/hooks/useShelters";
 
 export function ShelterSelect() {
   const {
@@ -11,14 +10,7 @@ export function ShelterSelect() {
     formState: { errors },
   } = useFormContext<DonationFormValues>();
 
-  const {
-    data: shelters,
-    isPending,
-    isError,
-  } = useQuery({
-    queryKey: ["shelters"],
-    queryFn: fetchShelters,
-  });
+  const { data: shelters, isPending, isError } = useShelters();
 
   const isForShelter = watch("donationType") === "shelter";
 

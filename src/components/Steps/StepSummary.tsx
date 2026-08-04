@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import type { DonationFormValues } from "@/lib/donationSchema";
-import { SHELTERS } from "@/lib/shelters";
+import { useShelters } from "@/hooks/useShelters";
 import styles from "./Steps.module.scss";
 
 export function StepSummary() {
@@ -12,7 +12,8 @@ export function StepSummary() {
   const { donationType, shelterId, amount, firstName, lastName, email, phone } =
     watch();
   const isForShelter = donationType === "shelter";
-  const shelter = SHELTERS.find((item) => item.id === shelterId);
+  const { data: shelters } = useShelters();
+  const shelter = shelters?.find((item) => String(item.id) === shelterId);
   const fullName = [firstName, lastName].filter(Boolean).join(" ");
 
   return (
