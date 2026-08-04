@@ -2,48 +2,51 @@
 
 // Font sizes
 
-@mixin lead1 {
-	font-size: 48px;
-	line-height: 56px;
+@mixin lead-1 {
+  font-size: 48px;
+  line-height: 56px;
 
-	@media (max-width: $screen-tablet-max) {
-		font-size: 36px;
-		line-height: normal;
-	}
+  @media (max-width: $screen-tablet-max) {
+    font-size: 36px;
+    line-height: normal;
+  }
 
-	@media(max-width: $screen-mobile-max) {
-		font-size: 28px;
-	}
+  @media (max-width: $screen-mobile-max) {
+    font-size: 28px;
+  }
 }
 
-@mixin lead2 {
-	font-size: 18px;
-	line-height: 24px;
+@mixin lead-2 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
-@mixin lead3 {
-	font-size: 16px; // body default
-	line-height: 20px;
+@mixin lead-3 {
+  font-size: 16px; // body default
+  line-height: 20px;
 }
 
-@mixin lead4 {
-	font-size: 14px;
-	line-height: 20px;
+@mixin lead-4 {
+  font-size: 14px;
+  line-height: 20px;
 }
 
 // Headings
 
-@mixin headingLead1 {
-	@include lead1;
-	font-weight: 700;
+@mixin heading-lead-1 {
+  @include lead-1;
+
+  font-weight: 700;
 }
 
-@mixin headingLead2 {
-	@include lead2;
-	font-weight: 600;
+@mixin heading-lead-2 {
+  @include lead-2;
+
+  font-weight: 600;
 }
 
-@mixin headingLead3 {
-	@include lead3;
-	font-weight: 600;
+@mixin heading-lead-3 {
+  @include lead-3;
+
+  font-weight: 600;
 }

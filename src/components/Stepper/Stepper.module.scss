@@ -2,101 +2,103 @@
 @use "../../styles/typography" as *;
 
 .stepNumbersWrapper {
-	display: flex;
-	align-items: center;
-	gap: 16px;
-	list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
 
-	@media(max-width: $screen-mobile-max) {
-		justify-content: space-between;
-		align-items: flex-start;
-	}
+  @media (max-width: $screen-mobile-max) {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .stepItem {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-	@media(max-width: $screen-mobile-max) {
-		gap: 20px;
-	}
+  @media (max-width: $screen-mobile-max) {
+    gap: 20px;
+  }
 
-	&:not(:last-child) {
-		flex: 1;
+  &:not(:last-child) {
+    flex: 1;
 
-		&::after {
-			content: "";
-			flex: 1;
-			min-width: 24px;
-			height: 1px;
-			background-color: $quintarny;
-		}
-	}
+    &::after {
+      content: "";
+      flex: 1;
+      min-width: 24px;
+      height: 1px;
+      background-color: $quintarny;
+    }
+  }
 }
 
 .stepItemInner {
-	display: flex;
-	align-items: center;
-	gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-	@media(max-width: $screen-mobile-max) {
-		flex-direction: column;
-		flex: 0;
-	}
+  @media (max-width: $screen-mobile-max) {
+    flex-direction: column;
+    flex: 0;
+  }
 }
 
 .stepNumber {
-	@include lead3;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	width: 32px;
-	height: 32px;
-	border: 1px solid transparent;
-	border-radius: 50%;
+  @include lead-3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 50%;
 }
 
 .stepLabel {
-	@include lead3;
-	white-space: nowrap;
+  @include lead-3;
 
-	@media(max-width: $screen-mobile-max) {
-		white-space: normal;
-		font-size: 14px;
-		text-align: center;
-	}
+  white-space: nowrap;
+
+  @media (max-width: $screen-mobile-max) {
+    white-space: normal;
+    font-size: 14px;
+    text-align: center;
+  }
 }
 
 // ---------- States ----------
 
 .stepItem[data-state="active"] {
-	.stepNumber {
-		background-color: $primary;
-		color: $white;
-	}
+  .stepNumber {
+    background-color: $primary;
+    color: $white;
+  }
 }
 
 .stepItem[data-state="done"] {
-	.stepNumber {
-		border-color: $primary;
-		color: $primary;
-	}
+  .stepNumber {
+    border-color: $primary;
+    color: $primary;
+  }
 }
 
 .stepItem[data-state="upcoming"] {
-	.stepNumber {
-		border-color: $quintarny;
-		color: $quintarny;
-	}
+  .stepNumber {
+    border-color: $quintarny;
+    color: $quintarny;
+  }
 
-	.stepLabel {
-		color: $quintarny;
-	}
+  .stepLabel {
+    color: $quintarny;
+  }
 }
 
 .checkImage {
-	object-fit: contain;
-	max-width: 100%;
+  object-fit: contain;
+  max-width: 100%;
 }

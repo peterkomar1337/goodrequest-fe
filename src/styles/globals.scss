@@ -6,57 +6,57 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-	-webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-	// --font-sans is set by next/font in app/layout.tsx
-	@include lead3;
+  // --font-sans is set by next/font in app/layout.tsx
+  @include lead-3;
 
-	font-family: var(--font-sans), system-ui, sans-serif;
-	font-weight: $font-weight-regular;
-	color: $primary-dark;
-	background: $white;
-	-webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: $font-weight-regular;
+  color: $primary-dark;
+  background: $white;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
 svg {
-	display: block;
-	max-width: 100%;
-	height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 button,
 input,
 select,
 textarea {
-	font: inherit;
-	color: inherit;
+  font: inherit;
+  color: inherit;
 }
 
 button {
-	background: none;
-	border: none;
-	cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 button:disabled {
-	cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 // Headings inherit size and weight; both are set per element from the type
@@ -65,46 +65,46 @@ h1,
 h2,
 h3,
 h4 {
-	font-size: inherit;
-	font-weight: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 // ---------- Layout ----------
 
 .container {
-	width: 100%;
-	max-width: $container-width;
-	margin: 0 auto;
-	padding: 0 12px;
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 12px;
 }
 
 // ---------- Accessibility ----------
 
 :focus-visible {
-	outline: 2px solid $primary;
-	outline-offset: 2px;
-	border-radius: $radius-sm;
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+  border-radius: $radius-sm;
 }
 
 .sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip-path: rect(0 0 0 0);
-	white-space: nowrap;
-	border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0 0 0 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

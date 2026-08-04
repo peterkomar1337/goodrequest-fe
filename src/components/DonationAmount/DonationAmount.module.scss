@@ -2,91 +2,97 @@
 @use "../../styles/typography" as *;
 
 .wrapper {
-	border: none;
-	min-width: 0;
+  border: none;
+  min-width: 0;
 }
 
 .legend {
-	@include headingLead3;
-	padding: 0;
-	margin-bottom: 24px;
+  @include heading-lead-3;
+
+  padding: 0;
+  margin-bottom: 24px;
 }
 
 .custom {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
-	width: fit-content;
-	margin: 0 auto 24px;
-	padding-bottom: 4px;
-	border-bottom: 2px solid $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: fit-content;
+  margin: 0 auto 24px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid $primary;
 }
 
 .input {
-	@include lead1;
-	width: 110px;
-	padding: 0;
-	border: none;
-	background: none;
-	color: $quaternary;
-	text-align: center;
-	appearance: textfield;
+  @include lead-1;
 
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button {
-		appearance: none;
-		margin: 0;
-	}
+  width: 110px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: $quaternary;
+  text-align: center;
+  appearance: textfield;
 
-	&::placeholder {
-		color: $quaternary;
-		opacity: 1;
-	}
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &::placeholder {
+    color: $quaternary;
+    opacity: 1;
+  }
 }
 
 .currency {
-	@include lead2;
-	align-self: stretch;
-	display: flex;
-	align-items: center;
-	padding-left: 12px;
-	border-left: 1px solid $quaternary;
-	color: $tertiary;
+  @include lead-2;
+
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  border-left: 1px solid $quaternary;
+  color: $tertiary;
 }
 
 .presets {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .preset {
-	flex: 1 1 0;
-	min-width: 72px;
+  flex: 1 1 0;
+  min-width: 72px;
 }
 
 .presetLabel {
-	@include lead4;
-	display: block;
-	padding: 12px 8px;
-	border-radius: $radius-md;
-	background-color: $secondary;
-	text-align: center;
-	cursor: pointer;
-	transition: background-color 0.15s ease, color 0.15s ease;
+  @include lead-4;
+
+  display: block;
+  padding: 12px 8px;
+  border-radius: $radius-md;
+  background-color: $secondary;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .presetInput:not(:checked) + .presetLabel:hover {
-	background-color: $quintarny;
+  background-color: $quintarny;
 }
 
 .presetInput:checked + .presetLabel {
-	background-color: $primary;
-	color: $white;
+  background-color: $primary;
+  color: $white;
 }
 
 .presetInput:focus-visible + .presetLabel {
-	outline: 2px solid $primary;
-	outline-offset: 2px;
+  outline: 2px solid $primary;
+  outline-offset: 2px;
 }

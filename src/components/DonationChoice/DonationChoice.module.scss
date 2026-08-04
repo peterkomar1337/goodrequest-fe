@@ -2,39 +2,42 @@
 @use "../../styles/typography" as *;
 
 .choicesWrapper {
-	display: flex;
-	gap: 8px;
-	padding: 4px;
-	border: 1px solid $quintarny;
-	border-radius: $radius-md;
-	background-color: $white;
-	min-width: 0;
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+  border: 1px solid $quintarny;
+  border-radius: $radius-md;
+  background-color: $white;
+  min-width: 0;
 
-	@media(max-width: $screen-mobile-max) {
-		flex-direction: column;
-	}
+  @media (max-width: $screen-mobile-max) {
+    flex-direction: column;
+  }
 }
 
 .choiceLabel {
-	@include lead4;
-	flex: 1;
-	padding: 16px 8px;
-	border-radius: $radius-sm;
-	text-align: center;
-	cursor: pointer;
-	transition: background-color 0.15s ease, color 0.15s ease;
+  @include lead-4;
+
+  flex: 1;
+  padding: 16px 8px;
+  border-radius: $radius-sm;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .choiceInput:not(:checked) + .choiceLabel:hover {
-	background-color: $secondary;
+  background-color: $secondary;
 }
 
 .choiceInput:checked + .choiceLabel {
-	background-color: $primary;
-	color: $white;
+  background-color: $primary;
+  color: $white;
 }
 
 .choiceInput:focus-visible + .choiceLabel {
-	outline: 2px solid $primary;
-	outline-offset: 2px;
+  outline: 2px solid $primary;
+  outline-offset: 2px;
 }

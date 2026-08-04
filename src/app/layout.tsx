@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
-import {Providers} from "@/app/Providers";
+import { Providers } from "@/app/Providers";
 
 // latin-ext covers Slovak diacritics.
 const inter = Inter({
@@ -23,8 +23,8 @@ export default function RootLayout({
   return (
     <html lang="sk" className={inter.variable}>
       <body>
-				<Providers>{children}</Providers>
-			</body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

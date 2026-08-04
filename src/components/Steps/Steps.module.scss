@@ -2,15 +2,15 @@
 @use "../../styles/typography" as *;
 
 .sectionDiv {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .sectionTitle {
-	@include headingLead3;
+  @include heading-lead-3;
 }
 
 .title {
-	@include headingLead1;
+  @include heading-lead-1;
 }

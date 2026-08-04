@@ -1,0 +1,8 @@
+# Build output and lockfiles are machine-written.
+.next
+out
+package-lock.json
+
+# Project notes are hand-wrapped at 80 columns and contain aligned tables that
+# Prettier would reflow, making their diffs unreadable.
+*.md

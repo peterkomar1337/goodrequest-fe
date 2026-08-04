@@ -2,34 +2,36 @@
 @use "../../styles/typography" as *;
 
 .field {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .label {
-	@include lead4;
-	font-weight: 500;
+  @include lead-4;
+
+  font-weight: 500;
 }
 
 .optional {
-	color: $quaternary;
+  color: $quaternary;
 }
 
 .select {
-	@include lead3;
-	appearance: none;
-	width: 100%;
-	padding: 14px 48px 14px 16px;
-	border: 1px solid transparent;
-	border-radius: $radius-md;
-	background-color: $secondary;
-	cursor: pointer;
-	background-image: url("/images/icons/arrow-down.svg");
-	background-repeat: no-repeat;
-	background-position: right 16px center;
+  @include lead-3;
+
+  appearance: none;
+  width: 100%;
+  padding: 14px 48px 14px 16px;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  background-color: $secondary;
+  cursor: pointer;
+  background-image: url("/images/icons/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
 }
 
 .select:has(option[value=""]:checked) {
-	color: $quaternary;
+  color: $quaternary;
 }
