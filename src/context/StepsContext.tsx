@@ -18,7 +18,7 @@ type StepsContextValue = {
 export type StepsAction = { type: "next" } | { type: "back" };
 
 export const FIRST_STEP = 1;
-const LAST_STEP = 3;
+export const LAST_STEP = 3;
 
 export function stepsReducer(
   state: StepsState,

@@ -1,6 +1,7 @@
+import type { MouseEvent } from "react";
 import { Button } from "@/components/Button/Button";
 import styles from "./StepNavigation.module.scss";
-import { FIRST_STEP, useSteps } from "@/context/StepsContext";
+import { FIRST_STEP, LAST_STEP, useSteps } from "@/context/StepsContext";
 import { useFormContext, type FieldPath } from "react-hook-form";
 import type { DonationFormValues } from "@/lib/donationSchema";
 
@@ -52,13 +53,17 @@ export function StepNavigation() {
   const { state, dispatch } = useSteps();
   const { trigger } = useFormContext<DonationFormValues>();
 
-  const handleNext = async () => {
+  const handleNext = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
     const isStepValid = await trigger(STEP_FIELDS[state.step]);
 
     if (!isStepValid) return;
 
     dispatch({ type: "next" });
   };
+
+  const isLastStep = state.step === LAST_STEP;
 
   return (
     <div className={styles.stepNavigation}>
@@ -73,11 +78,11 @@ export function StepNavigation() {
       />
       <Button
         variant="primary"
-        text="Pokračovať"
-        type="button"
-        icon={ArrowRight}
-        iconPosition="right"
-        onClick={handleNext}
+        text={isLastStep ? "Odoslať" : "Pokračovať"}
+        type={isLastStep ? "submit" : "button"}
+        icon={isLastStep ? undefined : ArrowRight}
+        iconPosition={isLastStep ? undefined : "right"}
+        onClick={isLastStep ? undefined : handleNext}
       />
     </div>
   );

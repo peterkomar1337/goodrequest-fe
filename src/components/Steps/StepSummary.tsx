@@ -4,7 +4,11 @@ import { SHELTERS } from "@/lib/shelters";
 import styles from "./Steps.module.scss";
 
 export function StepSummary() {
-  const { watch } = useFormContext<DonationFormValues>();
+  const {
+    watch,
+    register,
+    formState: { errors },
+  } = useFormContext<DonationFormValues>();
   const { donationType, shelterId, amount, firstName, lastName, email, phone } =
     watch();
   const isForShelter = donationType === "shelter";
@@ -52,6 +56,26 @@ export function StepSummary() {
           <dd className={styles.summaryValue}>{phone}</dd>
         </div>
       </dl>
+
+      <div className={styles.consent}>
+        <input
+          className={styles.consentInput}
+          type="checkbox"
+          id="consent"
+          aria-invalid={errors.consent ? true : undefined}
+          aria-describedby={errors.consent ? "consent-error" : undefined}
+          {...register("consent")}
+        />
+        <label className={styles.consentLabel} htmlFor="consent">
+          Súhlasím so spracovaním osobných údajov
+        </label>
+      </div>
+
+      {errors.consent && (
+        <p className={styles.error} id="consent-error" role="alert">
+          {errors.consent.message}
+        </p>
+      )}
     </>
   );
 }

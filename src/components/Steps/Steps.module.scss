@@ -88,3 +88,25 @@
   font-weight: 500;
   text-align: right;
 }
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.consentInput {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: $primary;
+  cursor: pointer;
+}
+
+.consentLabel {
+  @include lead-4;
+
+  cursor: pointer;
+}

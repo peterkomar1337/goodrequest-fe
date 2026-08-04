@@ -42,8 +42,6 @@ export function Steps() {
         {state.step === 3 && <StepSummary />}
         <StepNavigation />
       </form>
-      {/* TODO: debug view of the live form state, remove before delivery */}
-      <pre>{JSON.stringify(methods.watch(), null, 2)}</pre>
     </FormProvider>
   );
 }

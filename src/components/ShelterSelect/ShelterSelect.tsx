@@ -16,7 +16,7 @@ export function ShelterSelect() {
     <div className={styles.field}>
       <label className={styles.label} htmlFor="shelterId">
         Útulok{""}
-        {isForShelter && <span className={styles.optional}>(Nepovinné)</span>}
+        {!isForShelter && <span className={styles.optional}>(Nepovinné)</span>}
       </label>
       <select
         className={styles.select}
