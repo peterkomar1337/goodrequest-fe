@@ -1,6 +1,8 @@
 import { Button } from "@/components/Button/Button";
 import styles from "./StepNavigation.module.scss";
 import { FIRST_STEP, useSteps } from "@/context/StepsContext";
+import { useFormContext, type FieldPath } from "react-hook-form";
+import type { DonationFormValues } from "@/lib/donationSchema";
 
 const ArrowLeft = (
   <svg
@@ -40,8 +42,23 @@ const ArrowRight = (
   </svg>
 );
 
+const STEP_FIELDS: Record<number, FieldPath<DonationFormValues>[]> = {
+  1: ["donationType", "shelterId", "amount"],
+  2: ["firstName", "lastName", "email", "phone"],
+  3: ["consent"],
+};
+
 export function StepNavigation() {
   const { state, dispatch } = useSteps();
+  const { trigger } = useFormContext<DonationFormValues>();
+
+  const handleNext = async () => {
+    const isStepValid = await trigger(STEP_FIELDS[state.step]);
+
+    if (!isStepValid) return;
+
+    dispatch({ type: "next" });
+  };
 
   return (
     <div className={styles.stepNavigation}>
@@ -60,7 +77,7 @@ export function StepNavigation() {
         type="button"
         icon={ArrowRight}
         iconPosition="right"
-        onClick={() => dispatch({ type: "next" })}
+        onClick={handleNext}
       />
     </div>
   );

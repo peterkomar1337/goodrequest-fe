@@ -14,3 +14,35 @@
 .title {
   @include heading-lead-1;
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  @include lead-4;
+
+  font-weight: 500;
+}
+
+.input {
+  @include lead-3;
+
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  background-color: $secondary;
+}
+
+.input[aria-invalid="true"] {
+  border-color: $error;
+}
+
+.error {
+  @include lead-4;
+
+  color: $error;
+}
