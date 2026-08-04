@@ -35,3 +35,9 @@
 .select:has(option[value=""]:checked) {
   color: $quaternary;
 }
+
+.error {
+  @include lead-4;
+
+  color: $error;
+}

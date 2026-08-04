@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <div className={styles.wrapper}>
         <section className={`container ${styles.section}`}>
-          <div className={styles.content}>
+          <div>
             <Steps />
             <Footer />
           </div>

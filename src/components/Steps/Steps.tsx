@@ -9,6 +9,7 @@ import { StepSummary } from "@/components/Steps/StepSummary";
 import { DonationFormValues, donationSchema } from "@/lib/donationSchema";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import styles from "./Steps.module.scss";
 
 const stepLabels = ["Výber útulku", "Osobné údaje", "Potvrdenie"];
 
@@ -19,21 +20,18 @@ export function Steps() {
     resolver: zodResolver(donationSchema),
     defaultValues: {
       donationType: "shelter",
+      shelterId: "",
       firstName: "",
       lastName: "",
       email: "",
       phone: "",
-      // TODO: placeholders until step 1 is wired to the form. Step navigation
-      // validates shelterId and amount, so without them the wizard cannot
-      // leave step 1.
-      shelterId: "1",
-      amount: 20,
     },
   });
 
   return (
     <FormProvider {...methods}>
       <form
+        className={styles.content}
         onSubmit={methods.handleSubmit(() => {
           // TODO: send through useMutation once the API is wired
         })}

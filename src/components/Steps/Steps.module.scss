@@ -7,6 +7,23 @@
   gap: 8px;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 660px;
+  padding: 40px 0;
+
+  @media (max-width: $screen-desktop-max) {
+    max-width: 100%;
+    padding: 30px;
+  }
+
+  @media (max-width: $screen-mobile-max) {
+    padding: 15px 0;
+  }
+}
+
 .sectionTitle {
   @include heading-lead-3;
 }

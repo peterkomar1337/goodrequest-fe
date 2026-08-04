@@ -65,34 +65,44 @@
 }
 
 .preset {
-  flex: 1 1 0;
-  min-width: 72px;
-}
-
-.presetLabel {
   @include lead-4;
 
-  display: block;
+  flex: 1 1 0;
+  min-width: 72px;
   padding: 12px 8px;
+  border: none;
   border-radius: $radius-md;
   background-color: $secondary;
-  text-align: center;
+  font-family: inherit;
+  color: inherit;
   cursor: pointer;
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
+
+  &:hover {
+    background-color: $quintarny;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+
+  &[aria-pressed="true"] {
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
 }
 
-.presetInput:not(:checked) + .presetLabel:hover {
-  background-color: $quintarny;
-}
+.error {
+  @include lead-4;
 
-.presetInput:checked + .presetLabel {
-  background-color: $primary;
-  color: $white;
-}
-
-.presetInput:focus-visible + .presetLabel {
-  outline: 2px solid $primary;
-  outline-offset: 2px;
+  margin-bottom: 24px;
+  color: $error;
+  text-align: center;
 }
