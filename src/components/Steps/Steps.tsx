@@ -1,7 +1,6 @@
 "use client";
 
-import {useReducer} from "react";
-import {stepsReducer} from "@/context/StepsContext";
+import {useSteps} from "@/context/StepsContext";
 import {Stepper} from "@/components/Stepper/Stepper";
 import {StepNavigation} from "@/components/StepNavigation/StepNavigation";
 import {StepShelter} from "@/components/Steps/StepShelter";
@@ -15,7 +14,7 @@ const stepLabels = [
 ]
 
 export function Steps() {
-	const [state, dispatch] = useReducer(stepsReducer, { step: 1 });
+	const {state} = useSteps();
 
 	return (
 		<>
@@ -23,7 +22,7 @@ export function Steps() {
 			{state.step === 1 && <StepShelter/>}
 			{state.step === 2 && <StepPersonal/>}
 			{state.step === 3 && <StepSummary/>}
-			<StepNavigation step={state.step} dispatch={dispatch}/>
+			<StepNavigation/>
 		</>
 	)
 }

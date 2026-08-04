@@ -1,7 +1,6 @@
 import {Button} from "@/components/Button/Button";
 import styles from "./StepNavigation.module.scss";
-import {Dispatch} from "react";
-import {FIRST_STEP, StepsAction} from "@/context/StepsContext";
+import {FIRST_STEP, useSteps} from "@/context/StepsContext";
 
 const ArrowLeft = (
 	<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
@@ -17,17 +16,14 @@ const ArrowRight = (
 	</svg>
 );
 
-type StepNavigationProps = {
-	step: number;
-	dispatch: Dispatch<StepsAction>;
-}
+export function StepNavigation() {
+	const {state, dispatch} = useSteps();
 
-export function StepNavigation({ step, dispatch }: StepNavigationProps) {
 	return (
 		<div className={styles.stepNavigation}>
 			<Button variant="secondary" text="Späť" type="button" icon={ArrowLeft} iconPosition="left"
 			        onClick={() => dispatch({ type: "back" })}
-			        disabled={step === FIRST_STEP}/>
+			        disabled={state.step === FIRST_STEP}/>
 			<Button variant="primary" text="Pokračovať" type="button" icon={ArrowRight} iconPosition="right"
 			        onClick={() => dispatch({ type: "next" })}/>
 		</div>
