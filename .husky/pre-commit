@@ -1,0 +1,17 @@
+# Format and lint everything in the index. lint-staged fixes files in place and
+# re-stages the result, so a commit can never carry unformatted code. Its rules
+# live under "lint-staged" in package.json.
+npx lint-staged
+
+# Block debug leftovers from reaching the repository. Only staged files are
+# checked — work in progress outside this commit is out of scope.
+staged=$(git diff --cached --name-only --diff-filter=ACM -- 'src/*')
+
+if [ -n "$staged" ]; then
+  if echo "$staged" | tr '\n' '\0' | xargs -0 grep -nHE "SK:|AI:|console\.log"; then
+    echo ""
+    echo "Debug leftovers found in the files above. Remove them, or commit with"
+    echo "--no-verify if this is deliberate."
+    exit 1
+  fi
+fi
