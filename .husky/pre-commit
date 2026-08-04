@@ -7,11 +7,27 @@ npx lint-staged
 # checked — work in progress outside this commit is out of scope.
 staged=$(git diff --cached --name-only --diff-filter=ACM -- 'src/*')
 
-if [ -n "$staged" ]; then
-  if echo "$staged" | tr '\n' '\0' | xargs -0 grep -nHE "SK:|AI:|console\.log"; then
-    echo ""
-    echo "Debug leftovers found in the files above. Remove them, or commit with"
-    echo "--no-verify if this is deliberate."
-    exit 1
-  fi
+if [ -z "$staged" ]; then
+  exit 0
+fi
+
+found=0
+
+# Teaching markers. These live inside comments by design, so every hit counts.
+if echo "$staged" | tr '\n' '\0' | xargs -0 grep -nHE "SK:|AI:"; then
+  found=1
+fi
+
+# Debug output. A commented-out line is allowed through, so the second grep
+# drops any hit whose line starts with //, /*, * or {/*.
+if echo "$staged" | tr '\n' '\0' | xargs -0 grep -nHE "console\.log|<pre" |
+  grep -vE "^[^:]*:[0-9]+:[[:space:]]*(//|/\*|\*|\{/\*)"; then
+  found=1
+fi
+
+if [ "$found" -eq 1 ]; then
+  echo ""
+  echo "Debug leftovers found in the files above. Remove them, or commit with"
+  echo "--no-verify if this is deliberate."
+  exit 1
 fi
