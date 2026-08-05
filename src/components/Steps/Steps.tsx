@@ -2,6 +2,7 @@
 
 import { useSteps } from "@/context/StepsContext";
 import { Stepper } from "@/components/Stepper/Stepper";
+import { Button } from "@/components/Button/Button";
 import { StepNavigation } from "@/components/StepNavigation/StepNavigation";
 import { StepShelter } from "@/components/Steps/StepShelter";
 import { StepPersonal } from "@/components/Steps/StepPersonal";
@@ -22,7 +23,7 @@ const stepLabels = ["Výber útulku", "Osobné údaje", "Potvrdenie"];
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export function Steps() {
-  const { state } = useSteps();
+  const { state, dispatch } = useSteps();
 
   const methods = useForm<DonationFormValues>({
     resolver: zodResolver(donationSchema),
@@ -42,11 +43,23 @@ export function Steps() {
     },
   });
 
+  const startOver = () => {
+    mutation.reset();
+    methods.reset();
+    dispatch({ type: "reset" });
+  };
+
   if (mutation.isSuccess) {
     return (
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles.success}`}>
         <h1 className={styles.title}>Ďakujeme za váš príspevok</h1>
         <p>Vašu pomoc sme zaznamenali a posúvame ju ďalej.</p>
+        <Button
+          variant="primary"
+          type="button"
+          text="Späť na začiatok"
+          onClick={startOver}
+        />
       </div>
     );
   }

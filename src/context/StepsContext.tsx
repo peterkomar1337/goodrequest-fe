@@ -15,7 +15,8 @@ type StepsContextValue = {
   dispatch: Dispatch<StepsAction>;
 };
 
-export type StepsAction = { type: "next" } | { type: "back" };
+export type StepsAction =
+  { type: "next" } | { type: "back" } | { type: "reset" };
 
 export const FIRST_STEP = 1;
 export const LAST_STEP = 3;
@@ -31,6 +32,9 @@ export function stepsReducer(
     case "back":
       if (state.step === FIRST_STEP) return state;
       return { step: state.step - 1 };
+    case "reset":
+      if (state.step === FIRST_STEP) return state;
+      return { step: FIRST_STEP };
     default:
       return state;
   }
