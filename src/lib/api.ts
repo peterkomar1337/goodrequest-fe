@@ -83,3 +83,20 @@ export async function contribute(payload: ContributePayload) {
     throw new Error(error.message);
   }
 }
+
+const statsSchema = z.object({
+  contributors: z.number(),
+  contribution: z.number().nullable(),
+});
+
+export type Stats = z.infer<typeof statsSchema>;
+
+export async function fetchStats(): Promise<Stats> {
+  const response = await fetch(`${API_URL}/shelters/results`);
+
+  if (!response.ok) {
+    throw new Error("Štatistiku sa nepodarilo načítať");
+  }
+
+  return statsSchema.parse(await response.json());
+}
