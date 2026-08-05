@@ -1,0 +1,20 @@
+@use "../../styles/variables" as *;
+@use "../../styles/typography" as *;
+
+.backLink {
+  @include lead-3;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: $primary;
+  font-weight: 500;
+
+  &:hover .icon {
+    transform: translateX(-4px);
+  }
+}
+
+.icon {
+  transition: transform 0.15s ease;
+}

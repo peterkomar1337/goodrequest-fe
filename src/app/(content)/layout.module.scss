@@ -1,0 +1,27 @@
+@use "../../styles/variables" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: 40px 0 32px;
+
+  @media (max-width: $screen-tablet-max) {
+    padding: 24px 0;
+  }
+}
+
+.inner {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 64px;
+
+  @media (max-width: $screen-tablet-max) {
+    gap: 40px;
+  }
+}
+
+.footerWrapper {
+  margin-top: auto;
+}

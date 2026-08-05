@@ -1,0 +1,24 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/typography" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  @include heading-lead-1;
+}
+
+.text {
+  @include lead-3;
+
+  line-height: 24px;
+  color: $primary-dark;
+}
+
+.stats {
+  border-top: 1px solid $quintarny;
+  border-bottom: 1px solid $quintarny;
+}
