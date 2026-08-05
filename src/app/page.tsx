@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Footer } from "@/components/Footer/Footer";
 import styles from "./page.module.scss";
-import "@/context/StepsContext";
+import { StepsProvider } from "@/context/StepsContext";
 import { Steps } from "@/components/Steps/Steps";
 
 export default function Home() {
@@ -10,7 +10,9 @@ export default function Home() {
       <div className={styles.wrapper}>
         <section className={`container ${styles.section}`}>
           <div className={styles.column}>
-            <Steps />
+            <StepsProvider>
+              <Steps />
+            </StepsProvider>
             <div className={styles.footerWrapper}>
               <Footer />
             </div>
