@@ -1,0 +1,84 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/typography" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.title {
+  @include heading-lead-1;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  list-style: none;
+  padding: 20px 0;
+
+  @media (max-width: $screen-tablet-max) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  @media (max-width: $screen-mobile-max) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+  background: rgba($primary, 10%);
+  border-radius: $radius-md;
+  color: $primary;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.cardTitle {
+  @include heading-lead-2;
+}
+
+.cardText {
+  @include lead-3;
+
+  margin-bottom: 12px;
+  color: $tertiary;
+}
+
+.cardLink {
+  @include lead-3;
+
+  color: $primary;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.image {
+  width: 100%;
+  max-width: 1120px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: $radius-xl;
+}

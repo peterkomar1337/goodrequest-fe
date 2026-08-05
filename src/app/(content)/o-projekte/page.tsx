@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <article className={styles.page}>
+    <section className={styles.page}>
       <BackLink />
 
       <h1 className={styles.title}>O projekte</h1>
@@ -40,6 +40,6 @@ export default function AboutPage() {
         adopciou chlpatého priateľa. Spoločne môžeme vytvoriť lepšiu budúcnosť
         pre psy v Žiline.
       </p>
-    </article>
+    </section>
   );
 }
