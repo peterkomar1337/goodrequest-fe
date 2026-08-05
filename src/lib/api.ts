@@ -1,7 +1,9 @@
 import { z } from "zod";
 import type { DonationFormValues } from "@/lib/donationSchema";
 
-const API_URL = "https://frontend-assignment-api.goodrequest.dev/api/v1";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  "https://frontend-assignment-api.goodrequest.dev/api/v1";
 
 const shelterSchema = z.object({
   id: z.number(),
@@ -31,7 +33,7 @@ export type ContributePayload = {
     firstName: string;
     lastName: string;
     email: string;
-    phone?: string;
+    phone: string;
   }[];
   shelterID: number | null;
   value: number;
