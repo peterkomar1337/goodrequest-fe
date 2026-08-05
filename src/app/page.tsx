@@ -6,12 +6,14 @@ import { Steps } from "@/components/Steps/Steps";
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.wrapper}>
         <section className={`container ${styles.section}`}>
-          <div>
+          <div className={styles.column}>
             <Steps />
-            <Footer />
+            <div className={styles.footerWrapper}>
+              <Footer />
+            </div>
           </div>
           <div>
             <Image
