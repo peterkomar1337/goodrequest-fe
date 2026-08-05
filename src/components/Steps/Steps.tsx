@@ -42,6 +42,15 @@ export function Steps() {
     },
   });
 
+  if (mutation.isSuccess) {
+    return (
+      <div className={styles.content}>
+        <h1 className={styles.title}>Ďakujeme za váš príspevok</h1>
+        <p>Vašu pomoc sme zaznamenali a posúvame ju ďalej.</p>
+      </div>
+    );
+  }
+
   return (
     <FormProvider {...methods}>
       <form
