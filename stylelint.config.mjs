@@ -12,6 +12,11 @@ const config = {
     // camelCase here while global helpers stay kebab-case. The default
     // kebab-only pattern would reject half the codebase either way.
     "selector-class-pattern": null,
+
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { ignorePseudoClasses: ["global", "local"] },
+    ],
   },
 };
 

@@ -9,18 +9,21 @@
 
 .content {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 40px;
   max-width: 660px;
-  padding: 40px 0;
+  padding-top: 40px;
 
   @media (max-width: $screen-desktop-max) {
     max-width: 100%;
     padding: 30px;
+    padding-bottom: 0;
   }
 
   @media (max-width: $screen-mobile-max) {
     padding: 15px 0;
+    padding-bottom: 0;
   }
 }
 
@@ -32,10 +35,57 @@
   @include heading-lead-1;
 }
 
-.field {
+.section {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: flex;
+  gap: 32px;
+
+  @media (max-width: $screen-mobile-max) {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.field {
+  --react-international-phone-height: 56px;
+  --react-international-phone-background-color: #{$secondary};
+  --react-international-phone-border-color: transparent;
+  --react-international-phone-border-radius: #{$radius-md};
+  --react-international-phone-font-size: 16px;
+  --react-international-phone-text-color: #{$primary-dark};
+  --react-international-phone-dropdown-top: 60px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
   gap: 8px;
+
+  :global(.react-international-phone-input-container) {
+    gap: 8px;
+  }
+
+  :global(
+    .react-international-phone-input-container
+      .react-international-phone-country-selector-button
+  ) {
+    width: 72px;
+    border-radius: $radius-md;
+    margin-right: 0;
+  }
+
+  :global(
+    .react-international-phone-input-container .react-international-phone-input
+  ) {
+    width: 100%;
+    padding: 0 16px;
+    border-radius: $radius-md;
+  }
 }
 
 .label {
@@ -48,10 +98,16 @@
   @include lead-3;
 
   width: 100%;
-  padding: 14px 16px;
+  height: 56px;
+  padding: 0 16px;
   border: 1px solid transparent;
   border-radius: $radius-md;
   background-color: $secondary;
+
+  &::placeholder {
+    color: $quaternary;
+    opacity: 1;
+  }
 
   &[aria-invalid="true"] {
     border-color: $error;
@@ -109,4 +165,11 @@
   @include lead-4;
 
   cursor: pointer;
+}
+
+.success {
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
 }
