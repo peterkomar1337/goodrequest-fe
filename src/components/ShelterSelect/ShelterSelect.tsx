@@ -38,8 +38,13 @@ export function ShelterSelect() {
         ))}
       </select>
       {isError && (
-        <p className={styles.error} id="shelterId-error" role="alert">
+        <p className={styles.error} role="alert">
           Útulky sa nepodarilo načítať. Skús obnoviť stránku.
+        </p>
+      )}
+      {errors.shelterId && (
+        <p className={styles.error} id="shelterId-error" role="alert">
+          {errors.shelterId.message}
         </p>
       )}
     </div>
