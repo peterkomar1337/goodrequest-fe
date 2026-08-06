@@ -21,7 +21,9 @@ export function StepPersonal() {
 
   return (
     <>
-      <h1 className={styles.title}>Potrebujeme od Vás zopár informácií</h1>
+      <h1 className={styles.title} tabIndex={-1}>
+        Potrebujeme od Vás zopár informácií
+      </h1>
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>O vás</h2>
@@ -99,6 +101,7 @@ export function StepPersonal() {
             control={control}
             render={({ field }) => (
               <PhoneInput
+                ref={field.ref}
                 value={field.value}
                 onChange={field.onChange}
                 onBlur={field.onBlur}

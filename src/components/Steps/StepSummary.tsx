@@ -21,7 +21,9 @@ export function StepSummary() {
 
   return (
     <>
-      <h1 className={styles.title}>Skontrolujte si zadané údaje</h1>
+      <h1 className={styles.title} tabIndex={-1}>
+        Skontrolujte si zadané údaje
+      </h1>
 
       <div className={styles.summary}>
         <h2 className={styles.sectionTitle}>Zhrnutie</h2>

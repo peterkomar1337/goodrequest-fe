@@ -88,6 +88,11 @@
     padding: 0 16px;
     border-radius: $radius-md;
 
+    &::placeholder {
+      color: $tertiary;
+      opacity: 1;
+    }
+
     &:focus-visible {
       outline: 2px solid $primary;
       outline-offset: 2px;
@@ -124,7 +129,7 @@
   background-color: $secondary;
 
   &::placeholder {
-    color: $quaternary;
+    color: $tertiary;
     opacity: 1;
   }
 
@@ -192,7 +197,7 @@
   width: 16px;
   height: 16px;
   margin: 0;
-  border: 1px solid $quintarny;
+  border: 1px solid $tertiary;
   border-radius: 4px;
   background-color: $white;
   cursor: pointer;

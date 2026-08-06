@@ -20,7 +20,7 @@ export default function Home() {
           <div>
             <Image
               src="/images/dog.jpg"
-              alt="Dog Image"
+              alt=""
               width={602}
               height={984}
               className={styles.leadImage}

@@ -14,6 +14,8 @@ export function ShelterSelect() {
 
   const isForShelter = watch("donationType") === "shelter";
 
+  const errorId = isError || errors.shelterId ? "shelterId-error" : undefined;
+
   return (
     <div className={styles.field}>
       <label className={styles.label} htmlFor="shelterId">
@@ -25,7 +27,7 @@ export function ShelterSelect() {
         id="shelterId"
         disabled={!shelters}
         aria-invalid={errors.shelterId ? true : undefined}
-        aria-describedby={errors.shelterId ? "shelterId-error" : undefined}
+        aria-describedby={errorId}
         {...register("shelterId")}
       >
         <option value="" disabled>
@@ -38,7 +40,7 @@ export function ShelterSelect() {
         ))}
       </select>
       {isError ? (
-        <p className={styles.error} role="alert">
+        <p className={styles.error} id={errorId} role="alert">
           Útulky sa nepodarilo načítať. Skús obnoviť stránku.
         </p>
       ) : (

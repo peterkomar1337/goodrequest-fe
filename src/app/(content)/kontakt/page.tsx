@@ -92,7 +92,7 @@ export default function ContactPage() {
 
       <h1 className={styles.title}>Kontakt</h1>
 
-      <ul className={styles.cards}>
+      <ul className={styles.cards} role="list">
         {CONTACTS.map((contact) => (
           <li className={styles.card} key={contact.title}>
             <span className={styles.iconBox}>{contact.icon}</span>

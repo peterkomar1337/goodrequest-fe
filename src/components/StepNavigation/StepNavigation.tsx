@@ -58,6 +58,8 @@ export function StepNavigation({ isSubmitting }: StepNavigationProps) {
   const {
     trigger,
     watch,
+    setFocus,
+    getFieldState,
     formState: { errors },
   } = useFormContext<DonationFormValues>();
 
@@ -76,9 +78,18 @@ export function StepNavigation({ isSubmitting }: StepNavigationProps) {
   const handleNext = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const isStepValid = await trigger(STEP_FIELDS[state.step]);
+    const stepFields = STEP_FIELDS[state.step];
+    const isStepValid = await trigger(stepFields);
 
-    if (!isStepValid) return;
+    if (!isStepValid) {
+      const firstInvalid = stepFields.find(
+        (field) => getFieldState(field).invalid,
+      );
+
+      if (firstInvalid) setFocus(firstInvalid);
+
+      return;
+    }
 
     dispatch({ type: "next" });
   };

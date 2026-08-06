@@ -8,6 +8,7 @@ import { StepShelter } from "@/components/Steps/StepShelter";
 import { StepPersonal } from "@/components/Steps/StepPersonal";
 import { StepSummary } from "@/components/Steps/StepSummary";
 import { DonationFormValues, donationSchema } from "@/lib/donationSchema";
+import { useEffect, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -49,10 +50,30 @@ export function Steps() {
     dispatch({ type: "reset" });
   };
 
+  const successTitleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (mutation.isSuccess) {
+      successTitleRef.current?.focus();
+    }
+  }, [mutation.isSuccess]);
+
+  const formRef = useRef<HTMLFormElement>(null);
+  const previousStep = useRef(state.step);
+
+  useEffect(() => {
+    if (previousStep.current === state.step) return;
+
+    previousStep.current = state.step;
+    formRef.current?.querySelector<HTMLHeadingElement>("h1")?.focus();
+  }, [state.step]);
+
   if (mutation.isSuccess) {
     return (
       <div className={`${styles.content} ${styles.success}`}>
-        <h1 className={styles.title}>Ďakujeme za váš príspevok</h1>
+        <h1 className={styles.title} ref={successTitleRef} tabIndex={-1}>
+          Ďakujeme za váš príspevok
+        </h1>
         <p>Vašu pomoc sme zaznamenali a posúvame ju ďalej.</p>
         <Button
           variant="primary"
@@ -67,6 +88,7 @@ export function Steps() {
   return (
     <FormProvider {...methods}>
       <form
+        ref={formRef}
         className={styles.content}
         onSubmit={methods.handleSubmit((values) => {
           mutation.mutate(toContributePayload(values));
