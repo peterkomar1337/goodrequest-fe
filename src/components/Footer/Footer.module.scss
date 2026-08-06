@@ -52,6 +52,16 @@
   list-style: none;
 }
 
+.socialLink {
+  display: inline-flex;
+  color: $quaternary;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -70,6 +80,6 @@
   transition: color 0.15s ease;
 
   &:hover {
-    color: $primary-dark;
+    color: $primary;
   }
 }
