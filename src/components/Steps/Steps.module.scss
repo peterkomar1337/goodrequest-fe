@@ -47,7 +47,7 @@
 
   @media (max-width: $screen-mobile-max) {
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
   }
 }
 
@@ -87,6 +87,11 @@
     width: 100%;
     padding: 0 16px;
     border-radius: $radius-md;
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
 
     &[aria-invalid="true"] {
       border: 1px solid $error;
@@ -137,7 +142,15 @@
 .summary {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+.summaryGroup {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid $quintarny;
 }
 
 .summaryRow {
@@ -155,7 +168,7 @@
 .summaryValue {
   @include lead-4;
 
-  font-weight: 500;
+  font-weight: 600;
   text-align: right;
 }
 
@@ -164,7 +177,6 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin-top: 24px;
 
   .error {
     position: absolute;
@@ -176,17 +188,29 @@
 
 .consentInput {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  appearance: none;
+  width: 16px;
+  height: 16px;
   margin: 0;
-  accent-color: $primary;
+  border: 1px solid $quintarny;
+  border-radius: 4px;
+  background-color: $white;
   cursor: pointer;
+
+  &:checked {
+    border: 1px solid $primary;
+    background-color: $primary-bg;
+    background-image: url("/images/icons/check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 .consentLabel {
   @include lead-4;
 
   cursor: pointer;
+  font-weight: 500;
 }
 
 .success {
