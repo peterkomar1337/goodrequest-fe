@@ -13,13 +13,18 @@
   margin-bottom: 24px;
 }
 
+.customField {
+  position: relative;
+  margin-bottom: 32px;
+}
+
 .custom {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   width: fit-content;
-  margin: 0 auto 24px;
+  margin: 0 auto;
   padding-bottom: 4px;
   border-bottom: 2px solid $primary;
 }
@@ -102,7 +107,11 @@
 .error {
   @include lead-4;
 
-  margin-bottom: 24px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
   color: $error;
   text-align: center;
 }

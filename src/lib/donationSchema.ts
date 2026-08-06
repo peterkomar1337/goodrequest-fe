@@ -14,9 +14,7 @@ const contributorFields = {
     .min(2, "Priezvisko musí mať aspoň 2 znaky")
     .max(30, "Priezvisko môže mať najviac 30 znakov"),
   email: z.email("Zadaj platný email"),
-  phone: z
-    .string()
-    .regex(/^\+42[01]\d{9}$/, "Zadaj slovenské alebo české číslo"),
+  phone: z.string().regex(/^\+42[01]\d{9}$/, "Zadaj číslo v správnom tvare"),
   consent: z.literal(true, "Bez súhlasu formulár odoslať nemôžeme"),
 };
 

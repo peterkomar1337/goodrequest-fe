@@ -38,7 +38,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
 }
 
 .row {
@@ -52,6 +52,8 @@
 }
 
 .field {
+  position: relative;
+
   --react-international-phone-height: 56px;
   --react-international-phone-background-color: #{$secondary};
   --react-international-phone-border-color: transparent;
@@ -85,6 +87,18 @@
     width: 100%;
     padding: 0 16px;
     border-radius: $radius-md;
+
+    &[aria-invalid="true"] {
+      border: 1px solid $error;
+    }
+  }
+
+  .error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
   }
 }
 
@@ -146,10 +160,18 @@
 }
 
 .consent {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 12px;
   margin-top: 24px;
+
+  .error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+  }
 }
 
 .consentInput {

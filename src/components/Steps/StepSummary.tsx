@@ -70,13 +70,13 @@ export function StepSummary() {
         <label className={styles.consentLabel} htmlFor="consent">
           Súhlasím so spracovaním osobných údajov
         </label>
-      </div>
 
-      {errors.consent && (
-        <p className={styles.error} id="consent-error" role="alert">
-          {errors.consent.message}
-        </p>
-      )}
+        {errors.consent && (
+          <p className={styles.error} id="consent-error" role="alert">
+            {errors.consent.message}
+          </p>
+        )}
+      </div>
     </>
   );
 }

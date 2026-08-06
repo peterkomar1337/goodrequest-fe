@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
 import { Providers } from "@/app/Providers";
 
-// latin-ext covers Slovak diacritics.
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-sans",

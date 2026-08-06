@@ -2,6 +2,7 @@
 @use "../../styles/typography" as *;
 
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -31,6 +32,10 @@
   background-image: url("/images/icons/arrow-down.svg");
   background-repeat: no-repeat;
   background-position: right 16px center;
+
+  &[aria-invalid="true"] {
+    border-color: $error;
+  }
 }
 
 .select:has(option[value=""]:checked) {
@@ -40,5 +45,10 @@
 .error {
   @include lead-4;
 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
   color: $error;
 }
