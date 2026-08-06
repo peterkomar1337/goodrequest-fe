@@ -1,4 +1,4 @@
-import type { MouseEvent } from "react";
+import { useEffect, type MouseEvent } from "react";
 import { Button } from "@/components/Button/Button";
 import styles from "./StepNavigation.module.scss";
 import { FIRST_STEP, LAST_STEP, useSteps } from "@/context/StepsContext";
@@ -55,7 +55,23 @@ type StepNavigationProps = {
 
 export function StepNavigation({ isSubmitting }: StepNavigationProps) {
   const { state, dispatch } = useSteps();
-  const { trigger } = useFormContext<DonationFormValues>();
+  const {
+    trigger,
+    watch,
+    formState: { errors },
+  } = useFormContext<DonationFormValues>();
+
+  const hasErrors = Object.keys(errors).length > 0;
+
+  useEffect(() => {
+    if (!hasErrors) return;
+
+    const subscription = watch(() => {
+      void trigger(STEP_FIELDS[state.step]);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [hasErrors, state.step, trigger, watch]);
 
   const handleNext = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
