@@ -65,7 +65,11 @@ export function Steps() {
     if (previousStep.current === state.step) return;
 
     previousStep.current = state.step;
-    formRef.current?.querySelector<HTMLHeadingElement>("h1")?.focus();
+
+    const heading = formRef.current?.querySelector<HTMLHeadingElement>("h1");
+
+    heading?.focus({ preventScroll: true });
+    heading?.scrollIntoView({ block: "nearest" });
   }, [state.step]);
 
   if (mutation.isSuccess) {
@@ -95,9 +99,11 @@ export function Steps() {
         })}
       >
         <Stepper steps={stepLabels} current={state.step} />
-        {state.step === 1 && <StepShelter />}
-        {state.step === 2 && <StepPersonal />}
-        {state.step === 3 && <StepSummary />}
+        <div className={styles.step} key={state.step}>
+          {state.step === 1 && <StepShelter />}
+          {state.step === 2 && <StepPersonal />}
+          {state.step === 3 && <StepSummary />}
+        </div>
         {mutation.isError && (
           <p className={styles.error} role="alert">
             Formulár sa nepodarilo odoslať. Skúste to prosím znova.

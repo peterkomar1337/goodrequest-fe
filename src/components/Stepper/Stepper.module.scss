@@ -1,5 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
+@use "../../styles/motion";
 
 .stepNumbersWrapper {
   display: flex;
@@ -57,12 +58,17 @@
   height: 32px;
   border: 1px solid transparent;
   border-radius: 50%;
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease;
 }
 
 .stepLabel {
   @include lead-3;
 
   white-space: nowrap;
+  transition: color 0.22s ease;
 
   @media (max-width: $screen-mobile-max) {
     white-space: normal;
@@ -101,4 +107,5 @@
 .checkImage {
   object-fit: contain;
   max-width: 100%;
+  animation: check-in 0.2s ease-out;
 }

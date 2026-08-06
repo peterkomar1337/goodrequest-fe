@@ -1,5 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
+@use "../../styles/motion";
 
 .field {
   position: relative;
@@ -45,6 +46,7 @@
 .error {
   @include lead-4;
 
+  animation: error-in 0.15s ease-out;
   position: absolute;
   top: 100%;
   left: 0;

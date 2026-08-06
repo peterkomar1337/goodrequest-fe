@@ -1,5 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/typography" as *;
+@use "../../styles/motion";
 
 .sectionDiv {
   display: flex;
@@ -27,12 +28,25 @@
   }
 }
 
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: step-in 0.22s ease-out;
+}
+
 .sectionTitle {
   @include heading-lead-3;
 }
 
 .title {
   @include heading-lead-1;
+
+  scroll-margin-top: 24px;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .section {
@@ -142,6 +156,7 @@
   @include lead-4;
 
   color: $error;
+  animation: error-in 0.15s ease-out;
 }
 
 .summary {
@@ -216,6 +231,7 @@
 
   cursor: pointer;
   font-weight: 500;
+  margin-top: -2px;
 }
 
 .success {
@@ -223,4 +239,5 @@
   justify-content: center;
   gap: 24px;
   text-align: center;
+  animation: success-in 0.3s ease-out;
 }
